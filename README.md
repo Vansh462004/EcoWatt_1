@@ -14,3 +14,6 @@ as the copy machine strangely turning on at 4am.
 The app supports various filters for the charts, such as only showing working
 hours. The average energy usage from multiple reports is calculated and 
 displayed with a prominent bold black line.
+
+I extracted some of the parser code and turned it into a more generic 
+library, [wemo-chart](https://github.com/NotWoods/wemo-chart).
