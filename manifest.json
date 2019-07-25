@@ -1,0 +1,19 @@
+{
+    "short_name": "Energy",
+    "name": "Insightful Energy",
+    "icons": [
+        {
+            "src": "favicon.ico",
+            "type": "image/x-icon",
+            "sizes": "16x16 32x32 48x48 64x64 128x128 196x196 256x256"
+        },
+        {
+            "src": "web_hi_res_512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#7dc36b"
+}
