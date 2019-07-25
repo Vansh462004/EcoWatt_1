@@ -5,7 +5,7 @@
 		<link rel="icon" href="favicon.ico" sizes="256x256 196x196 128x128 64x64 48x48 32x32 16x16"/>
 		<meta name="mobile-web-app-capable" content="yes">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Energy | Myron B. Thomspon Academy</title>
+		<title>Insightful Energy</title>
 		<link rel="stylesheet" href="fa/css/font-awesome.min.css">
 		<script>
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -26,20 +26,16 @@
 	</head>
 	<body>
 		<header>
-			<div>
-				<i class="fa fa-bolt"></i>
-				<h1>Energy</h1>
-				<h2>Myron B. Thomspon</h2>
+			<div class="logo__container">
+				<i class="logo__icon fa fa-bolt"></i>
+				<h1 class="logo__text">Insightful Energy</h1>
 			</div>
-			<a onclick="request('microwave.csv', 'White Microwave')">White Microwave</a>
+			<input type="file" id="file" accept=".csv">
+			<label for="file"><i class="fa fa-file-text-o"></i> Upload WeMo Insight data</label>
+			<strong>Demos:</strong>
+			<a onclick="request('microwave.csv', 'Microwave')">Microwave</a>
 			<a onclick="request('copier.csv', 'Copier')">Copier</a>
 			<a onclick="request('fridge.csv', 'Fridge')">Fridge</a>
-			<a onclick="request('imaging.csv', 'Imaging System')">Imaging System</a>
-			<a onclick="request('techDirector.csv', 'Tech Director')">Tech Director</a>
-			<a onclick="request('extMicrowave.csv', 'Exterior Microwave')">Exterior Microwave</a>
-			<a onclick="request('ted.csv', 'TED', 'ted')">TED</a>
-			<input type="file" id="file" accept=".csv">
-			<label for="file"><i class="fa fa-file-text-o"></i> Custom file</label>
 		</header>
 		<div id="progress">
 			<div id="bar"></div>

@@ -14,9 +14,15 @@ body {
 header {
 	background-color: #333;
 	height: 3rem;
+
+	line-height: 3rem;
+	color: gray;
+	text-shadow: 0.05rem 0.05rem 0 #333,
+		0.1rem 0.1rem 0 rgba(0,0,0,0.15);
+	font-size: 0.875em;
 }
 
-header div i {
+.logo__icon {
 	background-color: #7dc36b;
 	font-size: 2rem;
 	line-height: 2.5rem !important;
@@ -29,8 +35,7 @@ header div i {
 	float: left;
 	text-align: right;
 }
-header div {
-	width: 10em;
+.logo__container {
 	display: inline-block;
 	background-color: #7dc36b;
 	color: white;
@@ -39,41 +44,27 @@ header div {
 	padding: 0.25rem 0;
 	margin-right: 1em;
 	margin-left: 2em;
+	height: 2.5rem;
 }
-header h1 {
+.logo__text {
 	font-size: 1.25rem;
-	line-height: 1.625rem;
-	margin: 0;
+	line-height: 2.25rem;
+	margin: 0 1em;
 	display: inline-block;
-	height: 1.625rem;
-	width: 8rem;
 	text-align: center;
-	float: right;
-}
-header h2 {
-	height: 0.875rem;
-	line-height: 0.875rem;
-	font-size: 0.75rem;
-	margin: 0;
-	font-weight: normal;
-	width: 8rem;
-	text-align: center;
-	float: right;
 }
 
-header a, header label {
-	line-height: 3rem;
+header a, header label, header strong {
 	display: inline-block;
 	text-decoration: none;
-	color: gray;
+	color: inherit;
 	padding: 0 0.5em;
 	vertical-align: top;
-	transition: color 0.2s linear;
-	text-shadow: 0.05rem 0.05rem 0 #333,
-		0.1rem 0.1rem 0 rgba(0,0,0,0.15);
-	font-size: 0.875em;
-	cursor: pointer;
 	white-space: nowrap;
+}
+header a, header label {
+	transition: color 0.2s linear;
+	cursor: pointer;
 }
 header a:hover, header label:hover {
 	color: white;

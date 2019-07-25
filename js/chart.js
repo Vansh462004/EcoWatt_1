@@ -43,7 +43,7 @@ var title;
 var type;
 
 /*
-  The "request" function starts the program.  
+  The "request" function starts the program.
   It uses XMLHttpRequest to load the data file, which is then parsed
   by the formatTable function later. The buttons in the website
   trigger this function, passing a filename (ie: microwave.csv) and
@@ -83,7 +83,7 @@ function formatTable(responseFile) {
     var table = responseFile;
   }
   test = responseFile;
-  
+
   //The energyDataRow variable looks for whichever row contains the words 'Energy Data'
   //it will be used later to strip out some unneeded data
   var energyDataRow;
@@ -95,7 +95,7 @@ function formatTable(responseFile) {
       break;
     }
   }
-  
+
   //Remove all rows, up to and including "Energy Data" and "Date & Time,Power Consumed for past 30 mins (kWh)""
   table.splice(0, energyDataRow + 2);
   for (var i = 0; i < table.length; i++) {
@@ -141,8 +141,8 @@ function formatTable(responseFile) {
   }
 
   for (var i = formattedChart.sourceCode.length - 2; i >= 0; i--) {
-    var noTime = new Date(formattedChart.sourceCode[i][0].getFullYear(), 
-        formattedChart.sourceCode[i][0].getMonth(), 
+    var noTime = new Date(formattedChart.sourceCode[i][0].getFullYear(),
+        formattedChart.sourceCode[i][0].getMonth(),
         formattedChart.sourceCode[i][0].getDate());
     var column = -1;
     for (var j = 1; j < formattedChart.full[0].length; j++) {
@@ -183,7 +183,7 @@ function formatTable(responseFile) {
     formattedChart.full[k+1].splice(1, 0, formattedChart.average[k][1]);
   }
 
-  loadChart(formattedChart.full, title, "wemo"); 
+  loadChart(formattedChart.full, title, "wemo");
 }
 
 function formatTedData(responseFile) {
@@ -241,8 +241,8 @@ function formatTedData(responseFile) {
     var thisHour = new Date(0);
     thisHour.setHours(formattedChart.sourceCode[i][0].getHours());
 
-    var thisDate = new Date(formattedChart.sourceCode[i][0].getFullYear(), 
-        formattedChart.sourceCode[i][0].getMonth(), 
+    var thisDate = new Date(formattedChart.sourceCode[i][0].getFullYear(),
+        formattedChart.sourceCode[i][0].getMonth(),
         formattedChart.sourceCode[i][0].getDate());
 
     //Check if date preexists
@@ -283,7 +283,7 @@ function formatTedData(responseFile) {
     formattedChart.full[k+1].splice(1, 0, formattedChart.average[k]);
   }
 
-  loadChart(formattedChart.full, title, "ted"); 
+  loadChart(formattedChart.full, title, "ted");
 }
 
 function csvParse(string) {
@@ -316,16 +316,16 @@ function loadChart(chartArray, title, dataType) {
       duration: 300,
       easing: 'linear'
     },
-    explorer: { 
+    explorer: {
       maxZoomIn: 0.1
     },
-    hAxis: { 
+    hAxis: {
       title: 'Time',
       titleTextStyle: {
         italic: false
-      } 
+      }
     },
-    vAxis: { 
+    vAxis: {
       title: 'Power Consumed for past 30 mins (kWh)',
       titleTextStyle: {
         italic: false
@@ -336,7 +336,7 @@ function loadChart(chartArray, title, dataType) {
       }
     },
     series: {
-      0: { 
+      0: {
         color: '#000000',
         lineWidth: 5,
         lineDashStyle: [4,1]
@@ -400,33 +400,21 @@ function loadChart(chartArray, title, dataType) {
   changeView();
 }
 
-if (getQueryVariable("chart") == false) {
-  request('microwave.csv', 'White Microwave');
-} else {
-  switch(getQueryVariable("chart")) {
-    case 'microwave':
-      request('microwave.csv', 'White Microwave');
-      break;
-    case 'copier':
-      request('copier.csv', 'Copier');
-      break;
-    case 'fridge':
-      request('fridge.csv', 'Fridge');
-      break;
-    case 'imaging':
-      request('imaging.csv', 'Imaging System');
-      break;
-    case 'ted':
-      request('ted.csv', 'TED', 'ted');
-      break;
-    case 'techDirector':
-      request('techDirector.csv', 'Tech Director');
-      break;
-    case 'extMicrowave':
-      request('extMicrowave.csv', 'Exterior Microwave');
-      break;
+(function loadChartFromQuery() {
+  var demos = {
+    microwave: 'Microwave',
+    copier: 'Copier',
+    fridge: 'Fridge',
   }
-}
+
+  var query = getQueryVariable('chart');
+  if (Object.prototype.hasOwnProperty.call(demos, query)) {
+    var filename = query + '.csv';
+    request(filename, demos[query]);
+  } else {
+    request('microwave.csv', demos.microwave)
+  }
+})();
 
 function fileSelect(e) {
   var file = e.target.files[0];
@@ -448,7 +436,7 @@ function fileSelect(e) {
         break;
       case evt.target.error.ABORT_ERR:
         bar.innerHTML = 'File is not readable';
-        break; 
+        break;
       default:
         bar.innerHTML = 'An error occurred reading this file.';
     };
