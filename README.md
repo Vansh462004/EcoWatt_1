@@ -1,6 +1,7 @@
 # Insightful Energy
 
 Energy monitor program, originally created in 2014 for [Myron B. Thompson Academy](http://ethompson.org/).
+Upload data export files from a WeMo Insight Smart Plug and see the data charted out.
 
 In my high school electricity class, we were manually aggregating data from
 various energy monitor devices in Excel. I volunteered to create a tool to

@@ -78,24 +78,24 @@ header input {
 	header {
 		height: auto;
 	}
-	header div {
+	.logo__container {
 		margin-left: 0;
+		margin-right: 0;
 		width: 100%;
 	}
-	header h1, header h2 {
+	.logo__text {
 		display: block;
 		width: auto;
-		float: none;
 	}
 }
 @media screen and (max-width: 48rem) {
-	header a, header label {
+	header a, header label, header strong {
 		width: calc(25% - 1em - 4px);
 		text-align: center;
 	}
 }
 @media screen and (max-width: 35rem) {
-	header a, header label {
+	header a, header label, header strong {
 		width: calc(50% - 1em - 4px);
 		text-align: center;
 	}
